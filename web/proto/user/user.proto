@@ -1,0 +1,21 @@
+syntax = "proto3";
+option go_package = "proto/user";
+
+package go.micro.service.user;
+
+service User {
+  rpc SendSMS(Request) returns (Response) {}
+}
+
+message Request {
+  string phone = 1;
+  string imgCode = 2;
+  string uuid = 3;
+  bool isCheckImg = 4;
+}
+
+message Response {
+  string errorn = 1;
+  string errmsg = 2;
+  uint32 httpStatus = 3;
+}
